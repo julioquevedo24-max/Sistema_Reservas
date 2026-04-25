@@ -1,9 +1,17 @@
-from modelos.servicio import ServicioSala, ServicioEquipo, ServicioAsesoria
+from modelos.cliente import Cliente
+from modelos.servicio import ServicioSala
+from modelos.reserva import Reserva
 
-s1 = ServicioSala("Sala básica", 50)
-s2 = ServicioEquipo("Computador", 30)
-s3 = ServicioAsesoria("Consultoría", 100)
+try:
+    cliente = Cliente("Julio", "12345", "julio@email.com")
+    servicio = ServicioSala("Sala básica", 50)
 
-print(s1.calcular_costo(2))
-print(s2.calcular_costo(2))
-print(s3.calcular_costo(2))
+    reserva = Reserva(cliente, servicio, 2)
+
+    reserva.confirmar()
+
+    print(reserva)
+    print("Con descuento:", reserva.calcular_total_con_descuento(10))
+
+except Exception as e:
+    print(e)
