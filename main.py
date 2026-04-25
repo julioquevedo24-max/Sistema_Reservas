@@ -1,9 +1,9 @@
-from modelos.cliente import Cliente
+from modelos.servicio import ServicioSala, ServicioEquipo, ServicioAsesoria
 
-try:
-    c1 = Cliente("Julio", "12345", "julio@email.com")
-    print(c1)
+s1 = ServicioSala("Sala básica", 50)
+s2 = ServicioEquipo("Computador", 30)
+s3 = ServicioAsesoria("Consultoría", 100)
 
-    c2 = Cliente("", "abc", "correo_mal")  # error
-except Exception as e:
-    print(e)
+print(s1.calcular_costo(2))
+print(s2.calcular_costo(2))
+print(s3.calcular_costo(2))
